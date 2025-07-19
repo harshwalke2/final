@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Shreya ❤</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hearts-container"></div>
+
+  <div class="card">
+    <h1>Happy Birthday Mine 🎂💖</h1>
+    <img src="her.jpg" alt="Our Photo" class="photo" />
+    <p id="typingText" class="hidden"></p>
+
+    <button id="letterButton">💌 Letter for You</button>
+
+    <div class="love-letter-section hidden" id="letterSection">
+      <h2>💌 A Letter Just for You</h2>
+      <p class="letter-text">
+        My dear Shryy,<br>
+        You came into my life like sunshine, lighting up every corner of my heart.<br>
+        Your smile, your voice, the way you look at me — it’s all magic.<br><br>
+
+        Aaj hya special divshi, mala fakt evdhach bolaychay —<br>
+        Tujhya anandat sobat hasel,<br>
+        Ani tujhya dukhat nehmi tujhe Dole Pusel🥺,<br>
+        Ek panchtat joke marun tujha Sadness Ghalvel...<br><br>
+
+        Pn tula kadhihe ekta nahi sodnar. 🥺<br>
+        Tujhya sukhat, tujhya dukhhat —<br>
+        Nemich tujhya sobat asen. 🫶<br><br>
+
+        Tuzha,
+        Harshuu 💗
+      </p>
+      <button id="surpriseButton">🎁 Tap for Surprise</button>
+    </div>
+
+    <div id="surpriseContent" class="hidden">
+      <img src="surprise.jpg" alt="Surprise" class="surprise-image glow" />
+      <p class="love-note">
+        Every moment with you feels like magic, and I still can’t believe I get to call you mine.<br>
+        You’re not just my girlfriend — you’re my best friend, my peace, and my forever.<br>
+        I promise to stand by you, grow with you, and celebrate every birthday like it’s the most beautiful day in the world.<br>
+        I love you more than words can ever say, Shreya. 💞
+      </p>
+    </div>
+  </div>
+
+  <!-- Music -->
+  <audio id="tumsehiMusic">
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="saiyaaraMusic">
+    <source src="Saiyaara2.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const tumsehi = document.getElementById('tumsehiMusic');
+    const saiyaara = document.getElementById('saiyaaraMusic');
+    const textElement = document.getElementById('typingText');
+    const letterButton = document.getElementById('letterButton');
+    const letterSection = document.getElementById('letterSection');
+    const surpriseButton = document.getElementById('surpriseButton');
+    const surpriseContent = document.getElementById('surpriseContent');
+
+    const message = "You make my world more beautiful every day. I’m so lucky to have you. 💕";
+
+    // Typing animation
+    window.addEventListener('load', () => {
+      typeText(message);
+    });
+
+    function typeText(text) {
+      textElement.classList.remove('hidden');
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          textElement.textContent += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 50);
+    }
+
+    letterButton.addEventListener('click', () => {
+      letterSection.classList.remove('hidden');
+      letterButton.style.display = 'none';
+      saiyaara.play();
+      tumsehi.pause();
+    });
+
+    surpriseButton.addEventListener('click', () => {
+      surpriseContent.classList.remove('hidden');
+      surpriseButton.style.display = 'none';
+      tumsehi.play();
+      saiyaara.pause();
+      confetti();
+    });
+
+    const heartsContainer = document.querySelector('.hearts-container');
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>

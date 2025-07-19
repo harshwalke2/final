@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome 💖</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffc0cb, #ffe4e1);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: #fff0f5;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+      text-align: center;
+    }
+    input[type="password"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ff69b4;
+      width: 80%;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff85c1;
+    }
+    .error {
+      color: red;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Enter Password 💝</h2>
+    <input type="password" id="password" placeholder="Enter the secret...">
+    <br>
+    <button onclick="checkPassword()">Enter</button>
+    <p class="error" id="error-msg">Wrong password 😢</p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const correctPassword = "HarShreya1124";
+      const input = document.getElementById("password").value;
+      const error = document.getElementById("error-msg");
+
+      if (input === correctPassword) {
+        window.location.href = "main.html";
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
